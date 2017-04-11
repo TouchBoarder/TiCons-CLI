@@ -49,7 +49,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/fokkezb/ticons-cli.git"
+    "url": "git://github.com/touchboarder/ticons-cli.git"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
