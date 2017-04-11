@@ -1,6 +1,6 @@
 # XiCons CLI - a TiConsClone
  
-Command-line and CommonJS module version of [TiCons](http://ticons.fokkezb.nl) to generate icons and launch screens (aka splash images) for [Xamarin](https://www.xamarin.com/) [Titanium](http://appcelerator.com/titanium) & [Alloy](http://appcelerator.com/alloy) apps.
+Command-line and CommonJS module version of [TiCons](http://ticons.fokkezb.nl) to generate icons and launch screens (aka splash images) for [Xamarin](https://www.xamarin.com/), [Titanium](http://appcelerator.com/titanium) & [Alloy](http://appcelerator.com/alloy) apps.
 
 > **NOTE:** Under development!, targets Titanium SDK 4.2.0 to generate iOS icons
 
