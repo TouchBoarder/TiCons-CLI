@@ -15,7 +15,7 @@ As global CLI:
 ```
 [sudo] npm install -g ticons
 ```
-Replace index.js and lib folder content with XiCon ones
+Replace index.js and lib folder content with XiCones
 
 
 As a dependency in your projects `package.json`:
