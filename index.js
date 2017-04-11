@@ -73,6 +73,20 @@ exports.splashes = function(opts, callback) {
       if (cfg.cli) {
         logger.info('Starting ' + _.size(tasks) + ' jobs');
       }
+	  
+      // write launch_screen.xml		
+      if (cfg.nine && _.indexOf(cfg.platforms, 'android') !== -1) {		
+        var launchScreenPath = path.join(cfg.outputDir, cfg.assetsDir, 'Android', 'Resources', 'drawable', 'launch_screen.xml');		
+		
+        if (!fs.existsSync(launchScreenPath)) {		
+		
+          if (cfg.cli) {		
+            logger.info('Creating launch screen xml drawable to enable 9-Patch: ' + launchScreenPath.cyan);		
+          }		
+		
+          fs.createFileSync(launchScreenPath, constants.launchScreenXml);		
+        }		
+      }
 
       // run tasks
       async.parallel(tasks, callback);
