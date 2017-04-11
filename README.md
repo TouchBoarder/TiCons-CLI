@@ -1,8 +1,8 @@
-# TiCons CLI [](http://appcelerator.com/titanium/) [![Appcelerator Alloy](http://www-static.appcelerator.com/badges/alloy-git-badge-sq.png)](http:/appcelerator.com/alloy/)
+# XiCons CLI - a TiConsClone
  
-Command-line and CommonJS module version of [TiCons](http://ticons.fokkezb.nl) to generate icons and splash screens (aka launch images) for [Appcelerator](http://appcelerator.com) [Titanium](http://appcelerator.com/titanium) & [Alloy](http://appcelerator.com/alloy) apps.
+Command-line and CommonJS module version of [TiCons](http://ticons.fokkezb.nl) to generate icons and launch screens (aka splash images) for [Xamarin](https://www.xamarin.com/) [Titanium](http://appcelerator.com/titanium) & [Alloy](http://appcelerator.com/alloy) apps.
 
-> **NOTE:** In Titanium 5.0 the `DefaultIcon.png` was introduced. See [DefaultIcon](#defaulticon) for how TiCons handles this.
+> **NOTE:** Under development!, targets Titanium SDK 4.2.0 to generate iOS icons
 
 ## Prerequisites
 
@@ -15,6 +15,8 @@ As global CLI:
 ```
 [sudo] npm install -g ticons
 ```
+Replace index.js and lib folder content with XiCon ones
+
 
 As a dependency in your projects `package.json`:
 
@@ -28,7 +30,7 @@ As a dependency in your projects `package.json`:
 ```
 
 ## Quick Start
-TiCons can be used both as CLI and CommonJS module.
+XiCons can be used both as CLI and CommonJS module.
 
 ### CLI
 Hit `ticons -h` for full usage, but thanks to [Smart Defaults](#smart-defaults) this will work in most cases:
@@ -39,16 +41,10 @@ Hit `ticons -h` for full usage, but thanks to [Smart Defaults](#smart-defaults) 
      ~/myproject $ ticons icons
      ```
 
-- Detects if the CWD contains a classic or Alloy project, what platforms are targeted, if the app is locked to one orientation and then generates required splashes using `Default-Portrait-736h@3x.png` as input. If Android is targetted, 9-Patch images will be generated and the required `theme.xml` created for you if missing.
+- If Android is targetted, 9-Patch images will be generated and the required `launch_screen.xml` and `launch_theme.xml` created if missing. To use the LaunchScreen you must update the MainActivity.cs Activity annotation with the generated LaunchTheme style, and then set your app theme agian in the onCreate with `SetTheme(Resource.Style.MainTheme);`
 
      ```
      ~/myproject ticons splashes
-     ```
-
-- Detects if the CWD contains a classic or Alloy project, what platforms are targeted and then generates missing asset densities `iphone/images` as input. If both iOS and Android MDPI are targetted, `images` is used for both iOS and Android MDPI.
-
-     ```
-     ~/myproject ticons assets
      ```
           
 You can specify diferent input (`ticons icons myIcon.png`) and options to override the defaults for fine-tune the results to your liking.
@@ -74,8 +70,8 @@ ticons.icons({
 });
 ```
 
-## Smart defaults
-If the `outputDir` (or `-d` or CWD if missing) contains a project, *TiCons* will figure out lots of smart defaults:
+## Smart defaults from TiCons fork
+If the `outputDir` (or `-d` or CWD if missing) contains a project, *XiCons* will figure out lots of smart defaults:
 
 - If the project is classic instead of Alloy.
 - What platforms are targetted (`<deployment-targets>`).
@@ -142,18 +138,18 @@ Since 0.22 you can now set the exact input DPI with the `--orig-dpi` option, the
 You can also run `ticons assets` in a widget root, which will cause TiCons to read the target platforms from `widget.json` instead of `tiapp.xml`.
 
 ## Roadmap
-Feel free to fork and contribute towards resolving [requests](https://github.com/fokkezb/ticons-cli/issues).
+Feel free to fork this or the original TiCons repo and contribute towards resolving [requests](https://github.com/fokkezb/ticons-cli/issues).
 
-## Tests [![Travis](http://img.shields.io/travis/FokkeZB/TiCons-CLI.png)](https://travis-ci.org/FokkeZB/TiCons-CLI)
+## Tests 
 
 1. Install [node.js](http://nodejs.org/).
 2. Install [grunt](http://gruntjs.com/): `[sudo] npm install -g grunt-cli`
-3. Clone the repo: `git clone https://github.com/fokkezb/ticons-cli.git && cd ticons-cli && npm install`
+3. Clone the repo: `git clone https://github.com/touchboarder/xicons-cli.git && cd ticons-cli && npm install`
 4. Run tests: `grunt test`
 
 ## Issues
 
-Please report issues and features requests in the repo's [issue tracker](https://github.com/fokkezb/ticons-cli/issues).
+Please report issues and features requests in the repo's [issue tracker](https://github.com/touchboarder/xicons-cli/issues).
 
 ## License
 
