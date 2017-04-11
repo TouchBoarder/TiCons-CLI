@@ -74,7 +74,7 @@ exports.splashes = function(opts, callback) {
         logger.info('Starting ' + _.size(tasks) + ' jobs');
       }
 	  
-      // write launch_screen.xml		
+      // write launch_screen.xml and launch_theme.xml		
       if (cfg.nine && _.indexOf(cfg.platforms, 'android') !== -1) {		
         var launchScreenPath = path.join(cfg.outputDir, cfg.assetsDir, 'Android', 'Resources', 'drawable', 'launch_screen.xml');		
 		
@@ -85,7 +85,21 @@ exports.splashes = function(opts, callback) {
           }		
 		
           fs.createFileSync(launchScreenPath, constants.launchScreenXml);		
-        }		
+        }	
+
+		var themePath = path.join(cfg.outputDir, cfg.assetsDir, 'Android', 'Resources', 'values', 'launch_theme.xml');		
+		
+        if (!fs.existsSync(themePath)) {		
+		
+          if (cfg.cli) {		
+            logger.info('Creating theme to enable 9-Patch launch screen: ' + themePath.cyan);		
+           }		
+ 		
+           fs.createFileSync(themePath, constants.launchThemeXml);		
+         }
+
+
+		
       }
 
       // run tasks
